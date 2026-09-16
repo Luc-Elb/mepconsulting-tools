@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bid or Walk — ICI Electrical Bid/No-Bid Scorecard | MEP Consulting</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="A 12-question bid/no-bid scorecard for ICI electrical contractors in BC. Score the tender in front of you on counterparty risk, document maturity, scope clarity, schedule exposure and fit before you commit to a price.">
+<meta name="author" content="Luc Batcu, MEP Consulting">
+<link rel="canonical" href="https://tools.mepconsulting.ca/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bid or Walk — ICI Electrical Bid/No-Bid Scorecard">
+<meta property="og:description" content="Twelve questions on the tender in front of you. Score it before you price it.">
+<meta property="og:url" content="https://tools.mepconsulting.ca/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bid or Walk — ICI Electrical Bid/No-Bid Scorecard">
+<meta name="twitter:description" content="Twelve questions on the tender in front of you. Score it before you price it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{color-scheme:light;box-sizing:border-box}
+  html{scroll-padding-top:env(safe-area-inset-top,0px)}
+  body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}
+  img{max-width:100%}
+  [hidden]:not([hidden=until-found i]){display:none!important}
+</style>
+<style>
+  :root{
+    --ground:#EEF1F4;
+    --surface:#FFFFFF;
+    --surface-2:#F7F9FA;
+    --ink:#14181D;
+    --muted:#5A6672;
+    --line:#D8DEE4;
+    --line-strong:#B9C3CC;
+    --accent:#1D4E79;
+    --accent-soft:#E4EDF5;
+    --good:#1E6B45;
+    --good-soft:#E1F0E8;
+    --warn:#8A5A06;
+    --warn-soft:#F8EDD9;
+    --risk:#9A4B12;
+    --risk-soft:#F8E8DC;
+    --stop:#97271F;
+    --stop-soft:#F8E2E0;
+    --shadow:0 1px 2px rgba(20,24,29,.06),0 8px 24px -16px rgba(20,24,29,.28);
+    --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --f-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#12161A;
+      --surface:#1A1F25;
+      --surface-2:#20262D;
+      --ink:#E8EDF1;
+      --muted:#9AA7B4;
+      --line:#2C343C;
+      --line-strong:#3D4751;
+      --accent:#7FB0DA;
+      --accent-soft:#1B2B3A;
+      --good:#6FC79A;
+      --good-soft:#15291F;
+      --warn:#E0B25F;
+      --warn-soft:#2B2416;
+      --risk:#E09A66;
+      --risk-soft:#2E211A;
+      --stop:#E88A80;
+      --stop-soft:#301E1C;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#12161A;
+    --surface:#1A1F25;
+    --surface-2:#20262D;
+    --ink:#E8EDF1;
+    --muted:#9AA7B4;
+    --line:#2C343C;
+    --line-strong:#3D4751;
+    --accent:#7FB0DA;
+    --accent-soft:#1B2B3A;
+    --good:#6FC79A;
+    --good-soft:#15291F;
+    --warn:#E0B25F;
+    --warn-soft:#2B2416;
+    --risk:#E09A66;
+    --risk-soft:#2E211A;
+    --stop:#E88A80;
+    --stop-soft:#301E1C;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--f-body);
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:780px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+
+  /* ---------- masthead ---------- */
+  .mast{padding-block:40px 24px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:var(--f-mono);font-size:11px;font-weight:600;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+    margin:0 0 12px;
+  }
+  h1{
+    font-family:var(--f-display);font-weight:700;font-size:clamp(30px,6vw,42px);
+    line-height:1.08;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance;
+  }
+  .standfirst{margin:0;color:var(--muted);max-width:60ch;font-size:16px}
+  .byline{
+    margin:18px 0 0;font-size:13px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;
+  }
+  .byline strong{color:var(--ink);font-weight:600}
+  .byline span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em}
+
+  /* ---------- sticky score rail ---------- */
+  .rail{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    box-shadow:var(--shadow);margin-top:20px;
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    padding:12px 16px;
+  }
+  .rail-score{display:flex;align-items:baseline;gap:7px;font-family:var(--f-mono)}
+  .rail-score b{font-size:27px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .rail-score i{font-style:normal;font-size:12.5px;color:var(--muted)}
+  .rail-meter{flex:1 1 150px;min-width:110px;height:7px;border-radius:4px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden}
+  .rail-meter div{height:100%;width:0;border-radius:3px;transition:width .3s ease,background-color .3s ease}
+  .chip{
+    font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;padding:5px 10px;border-radius:5px;white-space:nowrap;
+  }
+  .rail-count{font-size:12px;color:var(--muted);font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+  /* ---------- example notice ---------- */
+  .notice{
+    margin-top:16px;padding:12px 14px;border-radius:8px;
+    background:var(--accent-soft);border:1px solid var(--line);
+    font-size:13.5px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;
+  }
+  .notice p{margin:0;flex:1 1 240px;color:var(--ink)}
+
+  /* ---------- sections ---------- */
+  .sec{margin-top:36px}
+  .sec-head{
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    padding-bottom:9px;border-bottom:2px solid var(--ink);margin-bottom:4px;
+  }
+  .sec-head h2{
+    font-family:var(--f-display);font-weight:600;font-size:15px;
+    letter-spacing:.05em;text-transform:uppercase;margin:0;
+  }
+  .sec-weight{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  .q{padding:20px 0;border-bottom:1px solid var(--line)}
+  .q:last-child{border-bottom:none}
+  .q-head{display:flex;gap:11px;margin-bottom:12px}
+  .q-num{
+    font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--muted);
+    padding-top:2px;font-variant-numeric:tabular-nums;flex:0 0 auto;
+  }
+  .q-title{margin:0;font-weight:600;font-size:15.5px;line-height:1.4}
+  .q-note{margin:5px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+
+  .opts{display:flex;flex-direction:column;gap:7px;margin-left:27px}
+  @media (max-width:430px){.opts{margin-left:0}}
+  .opt{
+    display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+    padding:10px 12px;border:1px solid var(--line);border-radius:7px;
+    background:var(--surface);transition:border-color .15s,background-color .15s;
+  }
+  .opt:hover{border-color:var(--line-strong)}
+  .opt input{margin:3px 0 0;flex:0 0 auto;accent-color:var(--accent);width:15px;height:15px}
+  .opt input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .opt-text{flex:1;font-size:14px;line-height:1.45}
+  .opt-pts{
+    font-family:var(--f-mono);font-size:11.5px;color:var(--muted);
+    font-variant-numeric:tabular-nums;flex:0 0 auto;padding-top:1px;
+  }
+  .opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  .opt:has(input:checked) .opt-pts{color:var(--accent);font-weight:600}
+
+  /* ---------- verdict ---------- */
+  .verdict{
+    margin-top:40px;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  .verdict-top{padding:22px 22px 20px;border-bottom:1px solid var(--line);display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+  .verdict-fig{font-family:var(--f-mono);line-height:1;flex:0 0 auto}
+  .verdict-fig b{display:block;font-size:46px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .verdict-fig i{font-style:normal;font-size:12px;color:var(--muted);letter-spacing:.05em}
+  .verdict-say{flex:1 1 240px;min-width:0}
+  .verdict-say h3{font-family:var(--f-display);font-size:21px;font-weight:700;margin:0 0 7px;letter-spacing:-.01em}
+  .verdict-say p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
+
+  .flags{padding:20px 22px}
+  .flags h4{
+    font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 13px;
+  }
+  .flag-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+  .flag-list li{display:flex;gap:11px;font-size:14px;line-height:1.5}
+  .flag-bar{flex:0 0 3px;border-radius:2px;background:var(--stop);align-self:stretch}
+  .flag-list li b{font-weight:600;display:block;margin-bottom:2px}
+  .flag-list li span{color:var(--muted)}
+  .all-clear{margin:0;font-size:14px;color:var(--good);display:flex;gap:9px;align-items:baseline}
+
+  .btn{
+    font-family:var(--f-body);font-size:13.5px;font-weight:500;cursor:pointer;
+    padding:8px 14px;border-radius:6px;border:1px solid var(--line-strong);
+    background:var(--surface);color:var(--ink);transition:border-color .15s;
+  }
+  .btn:hover{border-color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  footer{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  footer p{margin:0 0 10px;max-width:64ch}
+  footer p:last-child{margin-bottom:0}
+  footer strong{color:var(--ink)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">ICI Electrical · British Columbia</p>
+    <h1>Bid or Walk</h1>
+    <p class="standfirst">Twelve questions on the tender in front of you. The jobs that kill margin are rarely the ones that look hard at tender — they're the ones with a clean-looking spec and a GC nobody checked.</p>
+    <p class="byline"><strong>Luc Batcu</strong> <span>MASTER ELECTRICIAN · FSR · EET</span> <span>MEP CONSULTING</span></p>
+  </header>
+
+  <div class="rail" role="status" aria-live="polite">
+    <div class="rail-score"><b id="railScore">0</b><i>/ 100</i></div>
+    <div class="rail-meter"><div id="railBar"></div></div>
+    <span class="chip" id="railChip">Not scored</span>
+    <span class="rail-count" id="railCount">0 of 12</span>
+  </div>
+
+  <div class="notice" id="notice">
+    <p><strong>Loaded with an example tender</strong> so you can see how it scores. Clear it to run your own job through.</p>
+    <button class="btn" id="clearBtn" type="button">Clear and start fresh</button>
+  </div>
+
+  <form id="form"></form>
+
+  <section class="verdict" aria-live="polite">
+    <div class="verdict-top">
+      <div class="verdict-fig"><b id="vScore">0</b><i>SCORE</i></div>
+      <div class="verdict-say">
+        <h3 id="vBand">Answer the twelve</h3>
+        <p id="vSay">Work down the list. The score and the flags update as you go.</p>
+      </div>
+    </div>
+    <div class="flags">
+      <h4>What's driving the number</h4>
+      <div id="flagWrap"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>How to read it.</strong> This is judgment support, not a guarantee. It weights counterparty risk heaviest because that's what actually sinks electrical subs — not the take-off. A high score on a job you priced wrong is still a job you priced wrong.</p>
+    <p>Weights reflect one estimator's experience across ICI work in the Fraser Valley and Lower Mainland. Tune them to your own history — if a GC burned you in a way this doesn't capture, the model is wrong and yours is right.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var SECTIONS = [
+    { name:"The counterparty", weight:35, qs:[
+      { t:"Do you have payment history with this general contractor?",
+        n:"Direct experience beats reputation. Reputation beats nothing.",
+        o:[ {x:"Paid us before, 30–45 days, no fight over holdback",p:15},
+             {x:"Paid us before, but consistently 60–90 days",p:9},
+             {x:"No direct history; peers in the trade report no issues",p:7},
+             {x:"No history, or peers report slow pay and holdback disputes",p:0,
+               f:["Unknown or poor payer","You are extending credit to a stranger. Ask for the GC's bank reference, or price the carry."]} ]},
+      { t:"What does the payment clause in the subcontract say?",
+        n:"Pay-when-paid delays you. Pay-if-paid can mean you never get paid at all.",
+        o:[ {x:"Pay-when-paid with a defined outside date",p:10},
+             {x:"Pay-when-paid, no outside date",p:5,
+               f:["Open-ended payment timing","No outside date means no deadline they can breach. Ask for one in writing before you sign."]},
+             {x:"Pay-if-paid",p:0,
+               f:["Pay-if-paid clause","You are carrying the owner's credit risk for free. Price it, strike it, or walk."]},
+             {x:"Haven't seen the subcontract yet",p:2,
+               f:["Subcontract unseen","You are bidding blind on the terms that decide whether you get paid. Get the form before close."]} ]},
+      { t:"How is holdback structured?",
+        n:"BC Builders Lien Act statutory holdback is 10%. Anything on top is the GC financing itself with your money.",
+        o:[ {x:"Statutory 10% only, released per the Act",p:10},
+             {x:"10% plus a separate performance holdback under 5%",p:5},
+             {x:"Above 10%, or released only at total project completion",p:0,
+               f:["Excess or deferred holdback","Your last dollars are hostage to trades you don't control. Model the carrying cost and add it."]} ]} ]},
+
+    { name:"The documents", weight:25, qs:[
+      { t:"What is the drawing status at tender?",
+        n:"Design maturity is the single best predictor of change-order volume.",
+        o:[ {x:"Issued for Tender or Construction, coordinated",p:10},
+             {x:"90% design development",p:6},
+             {x:"50–75% DD, with design assist expected from you",p:2,
+               f:["Immature design","You will be pricing your own scope creep. Qualify the bid to the drawing list and revision."]},
+             {x:"Performance spec — design-build electrical",p:0,
+               f:["Performance spec","You own the design liability. That needs an engineer's fee in the number and your insurer told."]} ]},
+      { t:"How many addenda have been issued?",
+        n:"Addenda velocity tells you whether the design has settled.",
+        o:[ {x:"Zero to two",p:7},
+             {x:"Three to five",p:4},
+             {x:"Six or more, or still landing inside 72 hours of close",p:0,
+               f:["Design still moving at close","Late addenda mean unpriced scope. Ask for an extension or qualify to the last one you priced."]} ]},
+      { t:"What design data are you actually given?",
+        n:"Single-line diagrams, panel schedules and load calcs. Whatever isn't provided, you are deriving at your own risk.",
+        o:[ {x:"Single-lines, panel schedules and load calcs all provided",p:8},
+             {x:"Single-line only — you derive schedules and loads",p:4},
+             {x:"Neither, plus catch-all language like “complete and operational”",p:0,
+               f:["Catch-all scope language","“As required” and “complete and operational” are unbounded. Exclude explicitly or price the worst case."]} ]} ]},
+
+    { name:"Scope and interface", weight:15, qs:[
+      { t:"Are the Division 26 / 27 / 28 boundaries delineated?",
+        n:"Temporary power, commissioning, fire alarm verification, controls interface. The grey areas become yours by default.",
+        o:[ {x:"Clearly delineated, including temp power and verification",p:8},
+             {x:"Mostly clear, one or two grey areas",p:5},
+             {x:"Grey on controls interface, BAS or low-voltage ownership",p:2,
+               f:["Undefined interface scope","Controls and low-voltage boundaries get resolved in your scope at your cost. Name them as exclusions."]},
+             {x:"Not delineated at all",p:0,
+               f:["No scope boundary","Every trade will point at you. Write the boundary yourself into the bid as a qualification."]} ]},
+      { t:"Is there owner-supplied or long-lead equipment?",
+        n:"Switchgear and distribution lead times drive your whole schedule, and you don't control the PO.",
+        o:[ {x:"None, or delivery dates confirmed in writing",p:7},
+             {x:"Some OFCI, dates indicated but not confirmed",p:3,
+               f:["Unconfirmed OFCI dates","Your schedule depends on someone else's purchase order. Qualify your dates to confirmed delivery."]},
+             {x:"Switchgear or large distribution with no confirmed date",p:0,
+               f:["Long-lead gear, no date","This is the classic delay-claim trap. Exclude delay costs arising from late owner-supplied equipment."]} ]} ]},
+
+    { name:"Schedule and damages", weight:15, qs:[
+      { t:"Is the electrical duration achievable at normal crew density?",
+        n:"Against your real backlog, not a theoretical crew.",
+        o:[ {x:"Yes, at normal density with current backlog",p:8},
+             {x:"Needs a peak crew you can actually staff",p:5},
+             {x:"Needs overtime or shift work to hold the dates",p:2,
+               f:["Schedule needs premium time","Premium time has to be in the number, not discovered in month three."]},
+             {x:"Not achievable without subbing out",p:0,
+               f:["Schedule not achievable","You would be bidding a date you cannot hit, with LDs attached. This is how contractors go under."]} ]},
+      { t:"What is your liquidated damages exposure?",
+        n:"Measured against your contract value, not the project's.",
+        o:[ {x:"No LDs, or capped under 5% of your contract value",p:7},
+             {x:"Capped between 5% and 10%",p:4},
+             {x:"Uncapped, or tied to the GC's whole-project damages",p:0,
+               f:["Uncapped LD exposure","A delay you didn't cause can exceed your entire margin. Negotiate a cap or don't sign."]} ]} ]},
+
+    { name:"Your own fit", weight:10, qs:[
+      { t:"Have you self-performed this building type and size?",
+        n:"Productivity factors from a different building type are a guess wearing a number's clothes.",
+        o:[ {x:"Yes, this type and roughly this scale",p:5},
+             {x:"Similar type, meaningfully smaller scale",p:3},
+             {x:"New building type for your crews",p:0,
+               f:["Unfamiliar building type","Your labour units are borrowed. Add contingency or find someone who has done one."]} ]},
+      { t:"Is the change order process defined?",
+        n:"Markup percentage, submission window, approval turnaround.",
+        o:[ {x:"Markup and turnaround both defined in the documents",p:5},
+             {x:"Markup defined, no turnaround commitment",p:3},
+             {x:"“As directed”, or no defined process at all",p:0,
+               f:["No change order process","You will do the work and argue about it later, unpaid, at your own cost of capital."]} ]} ]}
+  ];
+
+  var BANDS = [
+    { min:80, label:"Bid it", tone:"good",
+      say:"The counterparty, the documents and the schedule all hold up. Price it properly and go." },
+    { min:60, label:"Bid with qualifications", tone:"warn",
+      say:"Workable, but not on the documents as written. Attach the exclusions below to your bid — every one of them, in writing." },
+    { min:40, label:"Risk premium, or walk", tone:"risk",
+      say:"The flags below are the ones that eat margin after award. Bid only with a contingency that reflects them, and be willing to lose it." },
+    { min:0,  label:"No-bid", tone:"stop",
+      say:"Too many of the things that sink electrical subs are present at once. Your time is better spent on the next tender." }
+  ];
+
+  var EXAMPLE = [2,1,0,1,1,1,2,1,1,1,1,1];
+  var STORE = "bidorwalk.v1";
+
+  var form = document.getElementById("form");
+  var flat = [];
+
+  SECTIONS.forEach(function(sec, si){
+    var s = document.createElement("section");
+    s.className = "sec";
+    var head = document.createElement("div");
+    head.className = "sec-head";
+    var h = document.createElement("h2");
+    h.textContent = sec.name;
+    var w = document.createElement("span");
+    w.className = "sec-weight";
+    w.textContent = sec.weight + " pts";
+    head.appendChild(h); head.appendChild(w);
+    s.appendChild(head);
+
+    sec.qs.forEach(function(q){
+      var qi = flat.length;
+      flat.push(q);
+      var d = document.createElement("div");
+      d.className = "q";
+
+      var qh = document.createElement("div");
+      qh.className = "q-head";
+      var num = document.createElement("span");
+      num.className = "q-num";
+      num.textContent = String(qi + 1).padStart(2, "0");
+      var body = document.createElement("div");
+      var t = document.createElement("p");
+      t.className = "q-title";
+      t.textContent = q.t;
+      body.appendChild(t);
+      if (q.n){
+        var nn = document.createElement("p");
+        nn.className = "q-note";
+        nn.textContent = q.n;
+        body.appendChild(nn);
+      }
+      qh.appendChild(num); qh.appendChild(body);
+      d.appendChild(qh);
+
+      var opts = document.createElement("div");
+      opts.className = "opts";
+      q.o.forEach(function(o, oi){
+        var lab = document.createElement("label");
+        lab.className = "opt";
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.name = "q" + qi;
+        inp.id = "q" + qi + "o" + oi;
+        inp.value = String(oi);
+        var tx = document.createElement("span");
+        tx.className = "opt-text";
+        tx.textContent = o.x;
+        var pt = document.createElement("span");
+        pt.className = "opt-pts";
+        pt.textContent = o.p;
+        lab.appendChild(inp); lab.appendChild(tx); lab.appendChild(pt);
+        opts.appendChild(lab);
+      });
+      d.appendChild(opts);
+      s.appendChild(d);
+    });
+    form.appendChild(s);
+  });
+
+  var railScore = document.getElementById("railScore"),
+      railBar   = document.getElementById("railBar"),
+      railChip  = document.getElementById("railChip"),
+      railCount = document.getElementById("railCount"),
+      vScore    = document.getElementById("vScore"),
+      vBand     = document.getElementById("vBand"),
+      vSay      = document.getElementById("vSay"),
+      flagWrap  = document.getElementById("flagWrap"),
+      notice    = document.getElementById("notice");
+
+  function toneVars(tone){
+    return { c:"var(--" + tone + ")", bg:"var(--" + tone + "-soft)" };
+  }
+
+  function current(){
+    var a = [];
+    for (var i = 0; i < flat.length; i++){
+      var sel = form.querySelector('input[name="q' + i + '"]:checked');
+      a.push(sel ? Number(sel.value) : -1);
+    }
+    return a;
+  }
+
+  function render(){
+    var a = current(), score = 0, answered = 0, flags = [];
+    a.forEach(function(oi, i){
+      if (oi < 0) return;
+      answered++;
+      var o = flat[i].o[oi];
+      score += o.p;
+      if (o.f) flags.push(o.f);
+    });
+
+    var complete = answered === flat.length;
+    var band = null;
+    for (var b = 0; b < BANDS.length; b++){
+      if (score >= BANDS[b].min){ band = BANDS[b]; break; }
+    }
+
+    railScore.textContent = score;
+    railCount.textContent = answered + " of " + flat.length;
+    railBar.style.width = score + "%";
+
+    if (answered === 0){
+      railChip.textContent = "Not scored";
+      railChip.style.color = "var(--muted)";
+      railChip.style.background = "var(--surface-2)";
+      railBar.style.backgroundColor = "var(--line-strong)";
+    } else {
+      var tv = toneVars(band.tone);
+      railChip.textContent = complete ? band.label : "Provisional";
+      railChip.style.color = tv.c;
+      railChip.style.background = tv.bg;
+      railBar.style.backgroundColor = tv.c;
+    }
+
+    vScore.textContent = score;
+    if (answered === 0){
+      vBand.textContent = "Answer the twelve";
+      vSay.textContent = "Work down the list. The score and the flags update as you go.";
+    } else {
+      vBand.textContent = band.label + (complete ? "" : " — provisional");
+      vSay.textContent = complete
+        ? band.say
+        : band.say + " " + (flat.length - answered) + " question" + (flat.length - answered === 1 ? "" : "s") + " still unanswered, so the number can still move.";
+    }
+
+    flagWrap.textContent = "";
+    if (!flags.length){
+      var p = document.createElement("p");
+      p.className = "all-clear";
+      if (answered === 0){
+        p.style.color = "var(--muted)";
+        p.textContent = "Nothing flagged yet.";
+      } else {
+        p.textContent = "✓  No red flags raised on the answers so far.";
+      }
+      flagWrap.appendChild(p);
+    } else {
+      var ul = document.createElement("ul");
+      ul.className = "flag-list";
+      flags.forEach(function(f){
+        var li = document.createElement("li");
+        var bar = document.createElement("span");
+        bar.className = "flag-bar";
+        var txt = document.createElement("div");
+        var bb = document.createElement("b");
+        bb.textContent = f[0];
+        var sp = document.createElement("span");
+        sp.textContent = f[1];
+        txt.appendChild(bb); txt.appendChild(sp);
+        li.appendChild(bar); li.appendChild(txt);
+        ul.appendChild(li);
+      });
+      flagWrap.appendChild(ul);
+    }
+
+    try { localStorage.setItem(STORE, JSON.stringify(a)); } catch (e) {}
+  }
+
+  function apply(a){
+    a.forEach(function(oi, i){
+      if (oi < 0) return;
+      var el = document.getElementById("q" + i + "o" + oi);
+      if (el) el.checked = true;
+    });
+  }
+
+  var saved = null;
+  try {
+    var raw = localStorage.getItem(STORE);
+    if (raw){
+      var parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length === flat.length) saved = parsed;
+    }
+  } catch (e) {}
+
+  if (saved){
+    apply(saved);
+    notice.hidden = true;
+  } else {
+    apply(EXAMPLE);
+  }
+  render();
+
+  form.addEventListener("change", function(){
+    notice.hidden = true;
+    render();
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", function(){
+    form.reset();
+    notice.hidden = true;
+    try { localStorage.removeItem(STORE); } catch (e) {}
+    render();
+    window.scrollTo({ top:0, behavior:"smooth" });
+  });
+})();
+</script>
+
+</body>
+</html>
+<!-- build 1789578698 -->
+<!-- build2 1789578927 -->
