@@ -206,6 +206,7 @@
     font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.11em;
     text-transform:uppercase;color:var(--muted);margin:0 0 13px;
   }
+    #copyFlagsBtn{margin-bottom:14px}
   .flag-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
   .flag-list li{display:flex;gap:11px;font-size:14px;line-height:1.5}
   .flag-bar{flex:0 0 3px;border-radius:2px;background:var(--stop);align-self:stretch}
@@ -264,6 +265,7 @@
     </div>
     <div class="flags">
       <h4>What's driving the number</h4>
+      <button class="btn" id="copyFlagsBtn" type="button" hidden>Copy exclusions as bid qualifications</button>
       <div id="flagWrap"></div>
     </div>
   </section>
@@ -462,7 +464,9 @@
       vBand     = document.getElementById("vBand"),
       vSay      = document.getElementById("vSay"),
       flagWrap  = document.getElementById("flagWrap"),
-      notice    = document.getElementById("notice");
+      notice    = document.getElementById("notice"),
+          copyBtn   = document.getElementById("copyFlagsBtn"),
+          copyBtnDefaultText = copyBtn ? copyBtn.textContent : "";
 
   function toneVars(tone){
     return { c:"var(--" + tone + ")", bg:"var(--" + tone + "-soft)" };
@@ -493,6 +497,13 @@
       if (score >= BANDS[b].min){ band = BANDS[b]; break; }
     }
 
+        // A red flag means there is something to qualify in writing. Never call it
+        // a clean "Bid it" while that's true -- drop it to "Bid with qualifications"
+        // so the verdict and the flags below it never contradict each other.
+        if (band && band.min === 80 && flags.length){
+                band = BANDS[1];
+        }
+
     railScore.textContent = score;
     railCount.textContent = answered + " of " + flat.length;
     railBar.style.width = score + "%";
@@ -521,6 +532,16 @@
         : band.say + " " + (flat.length - answered) + " question" + (flat.length - answered === 1 ? "" : "s") + " still unanswered, so the number can still move.";
     }
 
+    if (copyBtn){
+            if (flags.length){
+                      copyBtn.hidden = false;
+                      copyBtn.dataset.text = flags.map(function(f){ return "- " + f[0] + ": " + f[1]; }).join("\n");
+            } else {
+                      copyBtn.hidden = true;
+                      copyBtn.dataset.text = "";
+            }
+    }
+    
     flagWrap.textContent = "";
     if (!flags.length){
       var p = document.createElement("p");
@@ -584,6 +605,21 @@
     render();
   });
 
+    if (copyBtn){
+          copyBtn.addEventListener("click", function(){
+                  var text = "BID QUALIFICATIONS -- attach these to your bid in writing:\n\n" + (copyBtn.dataset.text || "");
+                  function done(ok){
+                            copyBtn.textContent = ok ? "Copied" : "Copy failed -- select the flags above and copy manually";
+                            setTimeout(function(){ copyBtn.textContent = copyBtnDefaultText; }, 2000);
+                  }
+                  if (navigator.clipboard && navigator.clipboard.writeText){
+                            navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+                  } else {
+                            done(false);
+                  }
+          });
+    }
+  
   document.getElementById("clearBtn").addEventListener("click", function(){
     form.reset();
     notice.hidden = true;
